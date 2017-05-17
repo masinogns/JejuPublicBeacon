@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity{
     private boolean isConnected;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -47,17 +47,9 @@ public class MainActivity extends AppCompatActivity{
                     if (!isConnected && nearestBeacon.getRssi() > -70){
                         isConnected = true;
 
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                        dialog .setTitle("알림")
-                                .setMessage("비콘 연결")
-                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
 
-                                    }
-                                }).create().show();
                     }
-                    else if(nearestBeacon.getRssi() < -70){
+                    else if(nearestBeacon.getRssi() < -80){
                         Toast.makeText(MainActivity.this, "연결종료", Toast.LENGTH_SHORT).show();
                         isConnected = false;
                     }
@@ -67,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
 
         region = new Region("ranged region",
                 UUID.fromString("e2558b02-4d84-ece3-9d4a-61e112a971ca"),
-                0,0);
+                39527,48523);
     }
 
     @Override

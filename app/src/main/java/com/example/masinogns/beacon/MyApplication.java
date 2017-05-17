@@ -38,7 +38,7 @@ public class MyApplication extends Application {
                 beaconManager.startMonitoring(new Region(
                         "monitored region",
                         UUID.fromString("e2558b02-4d84-ece3-9d4a-61e112a971ca"),
-                        0,0));
+                        39527,48523));
             }
         });
 
@@ -68,6 +68,7 @@ public class MyApplication extends Application {
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .build();
+
         notification.defaults |= Notification.DEFAULT_SOUND;
         NotificationManager notificationManager =
                 (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
